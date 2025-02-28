@@ -51,7 +51,7 @@ export const Footer = () => {
                                 {DATA.map((footerLinks) => (
                                     <div
                                         key={footerLinks.title}
-                                        className="footer-menu--container col-span-1 md:col-span-4"
+                                        className="footer-menu--container col-span-2 md:col-span-4"
                                     >
                                         <h3 className="font-bold text-base mb-2">
                                             {footerLinks.title}

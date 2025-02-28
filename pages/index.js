@@ -10,7 +10,7 @@ import { PageTitle } from "@components/Title";
 
 export default function Home() {
     return (
-        <Layout className="">
+        <Layout>
             <SEO
                 title="ecogenie biotech"
                 description="Innovating greener tomorrow."
