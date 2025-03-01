@@ -119,7 +119,6 @@ export default function Home() {
                                         alt="Customizable Layouts image used."
                                     />
                                 </Card>
-                              
                             </CardGroup>
                         </SectionContainer>
                     </MotionBTTContainer>
