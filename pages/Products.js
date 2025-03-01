@@ -125,7 +125,7 @@ export default function Products() {
 
     return (
         <Layout>
-            <SectionContainer className="footer--container wrap wrap-px relative z-10">
+            <SectionContainer className="footer--container wrap wrap-px relative z-10 pt-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     {/* Search Bar */}
                     <div className="max-w-2xl mx-auto mb-8">

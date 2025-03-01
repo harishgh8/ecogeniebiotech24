@@ -6,15 +6,11 @@ import Link from "next/link";
 import { Layout } from "@components/Layout";
 import { SectionContainer } from "@components/Section";
 import { motion, AnimatePresence } from "framer-motion";
+import OrderSummary from '@components/OrderSummary/OrderSummary';
 
 const Cart = () => {
-    const {
-        cart,
-        removeFromCart,
-        updateQuantity,
-        clearCart,
-        getCartTotal,
-    } = useCart();
+    const { cart, removeFromCart, updateQuantity, clearCart, getCartTotal } =
+        useCart();
     const router = useRouter();
     const [discountCode, setDiscountCode] = useState("");
     const [discount, setDiscount] = useState(0);
@@ -75,9 +71,11 @@ const Cart = () => {
                                 exit={{ opacity: 0 }}
                                 className="text-center py-12"
                             >
-                                <p className="text-xl mb-6">Your cart is empty</p>
+                                <p className="text-xl mb-6">
+                                    Your cart is empty
+                                </p>
                                 <Link
-                                    href="/products"
+                                    href="/Products"
                                     className="inline-block bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors"
                                 >
                                     Continue Shopping
@@ -100,17 +98,29 @@ const Cart = () => {
                                                     <Image
                                                         src={item.image}
                                                         fill
-                                                        style={{ objectFit: "contain" }}
+                                                        style={{
+                                                            objectFit: "contain"
+                                                        }}
                                                         alt={item.title}
                                                         className="rounded-md"
                                                     />
                                                 </div>
                                                 <div className="flex-grow">
-                                                    <h3 className="font-medium">{item.title}</h3>
-                                                    <p className="text-gray-600">₹{item.price.toFixed(2)}</p>
+                                                    <h3 className="font-medium">
+                                                        {item.title}
+                                                    </h3>
+                                                    <p className="text-gray-600">
+                                                        ₹{item.price.toFixed(2)}
+                                                    </p>
                                                     <div className="flex items-center mt-2">
                                                         <button
-                                                            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                                                            onClick={() =>
+                                                                handleQuantityChange(
+                                                                    item.id,
+                                                                    item.quantity -
+                                                                        1
+                                                                )
+                                                            }
                                                             className="p-1 rounded-md hover:bg-gray-100"
                                                         >
                                                             -
@@ -119,12 +129,28 @@ const Cart = () => {
                                                             type="number"
                                                             min="1"
                                                             max="10"
-                                                            value={item.quantity}
-                                                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                                                            value={
+                                                                item.quantity
+                                                            }
+                                                            onChange={(e) =>
+                                                                handleQuantityChange(
+                                                                    item.id,
+                                                                    parseInt(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                )
+                                                            }
                                                             className="w-16 text-center mx-2 p-1 border rounded-md"
                                                         />
                                                         <button
-                                                            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                                                            onClick={() =>
+                                                                handleQuantityChange(
+                                                                    item.id,
+                                                                    item.quantity +
+                                                                        1
+                                                                )
+                                                            }
                                                             className="p-1 rounded-md hover:bg-gray-100"
                                                         >
                                                             +
@@ -132,9 +158,19 @@ const Cart = () => {
                                                     </div>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="font-semibold">₹{(item.price * item.quantity).toFixed(2)}</p>
+                                                    <p className="font-semibold">
+                                                        ₹
+                                                        {(
+                                                            item.price *
+                                                            item.quantity
+                                                        ).toFixed(2)}
+                                                    </p>
                                                     <button
-                                                        onClick={() => removeFromCart(item.id)}
+                                                        onClick={() =>
+                                                            removeFromCart(
+                                                                item.id
+                                                            )
+                                                        }
                                                         className="text-red-600 hover:text-red-800 text-sm mt-2"
                                                     >
                                                         Remove
@@ -147,63 +183,18 @@ const Cart = () => {
 
                                 <div className="lg:col-span-1">
                                     <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
-                                        <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-                                        
-                                        <div className="space-y-2">
-                                            <div className="flex justify-between">
-                                                <span>Subtotal</span>
-                                                <span>₹{subtotal.toFixed(2)}</span>
-                                            </div>
+                                        {/* Order Summary */}
+                                        <OrderSummary
+                                            subtotal={subtotal}
+                                            shippingMethod={shippingMethod}
+                                            setShippingMethod={setShippingMethod}
+                                            discountCode={discountCode}
+                                            setDiscountCode={setDiscountCode}
+                                            discount={discount}
+                                            handleApplyDiscount={handleApplyDiscount}
+                                        />
 
-                                            <div className="flex justify-between items-center">
-                                                <span>Shipping</span>
-                                                <select
-                                                    value={shippingMethod}
-                                                    onChange={(e) => setShippingMethod(e.target.value)}
-                                                    className="border rounded-md p-1 text-sm"
-                                                >
-                                                    <option value="standard">Standard - Free</option>
-                                                    <option value="express">Express - ₹100</option>
-                                                </select>
-                                            </div>
-
-                                            <div className="flex justify-between">
-                                                <span>GST (18%)</span>
-                                                <span>₹{tax.toFixed(2)}</span>
-                                            </div>
-
-                                            {discount > 0 && (
-                                                <div className="flex justify-between text-green-600">
-                                                    <span>Discount</span>
-                                                    <span>-₹{discount.toFixed(2)}</span>
-                                                </div>
-                                            )}
-
-                                            <div className="pt-4 border-t">
-                                                <div className="flex items-center mb-4">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Discount Code"
-                                                        value={discountCode}
-                                                        onChange={(e) => setDiscountCode(e.target.value)}
-                                                        className="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                                                    />
-                                                    <button
-                                                        onClick={handleApplyDiscount}
-                                                        className="px-4 py-2 bg-green-600 text-white rounded-r-md hover:bg-green-700 transition-colors"
-                                                    >
-                                                        Apply
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex justify-between font-semibold text-lg border-t pt-4">
-                                                <span>Total</span>
-                                                <span>₹{totalAmount.toFixed(2)}</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-4 pt-4">
+                                        <div className="space-y-4 mt-6">
                                             <button
                                                 onClick={handleProceedToCheckout}
                                                 className="w-full py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
@@ -211,7 +202,7 @@ const Cart = () => {
                                                 Proceed to Checkout
                                             </button>
                                             <Link
-                                                href="/products"
+                                                href="/Products"
                                                 className="block w-full py-3 text-center border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
                                             >
                                                 Continue Shopping
@@ -232,9 +223,12 @@ const Cart = () => {
                                 exit={{ scale: 0.9, opacity: 0 }}
                                 className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4"
                             >
-                                <h2 className="text-xl font-semibold mb-4">Choose Checkout Option</h2>
+                                <h2 className="text-xl font-semibold mb-4">
+                                    Choose Checkout Option
+                                </h2>
                                 <p className="text-gray-600 mb-6">
-                                    Sign in to access your saved addresses and faster checkout
+                                    Sign in to access your saved addresses and
+                                    faster checkout
                                 </p>
                                 <div className="space-y-4">
                                     <button

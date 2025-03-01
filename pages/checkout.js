@@ -5,6 +5,7 @@ import Script from "next/script";
 import { useCart } from "../context/CartContext";
 import { useRouter } from "next/router";
 import { CheckoutForms } from "../components/Checkout/CheckoutForms";
+import OrderSummary from "@components/OrderSummary/OrderSummary";
 
 export default function Checkout() {
     const [loading, setLoading] = useState(false);
@@ -166,66 +167,15 @@ export default function Checkout() {
                                 isLoading={loading}
                             />
                         </div>
-                        <div className="col-span-12 lg:col-span-4">
-                            <div className="bg-white p-6 rounded-lg shadow-sm">
-                                <h2 className="text-xl font-semibold mb-4">
-                                    Order Summary
-                                </h2>
-                                <div className="space-y-4">
-                                    {cart.map((item) => (
-                                        <div
-                                            key={item.id}
-                                            className="flex justify-between items-center"
-                                        >
-                                            <div>
-                                                <p className="font-medium">
-                                                    {item.title}
-                                                </p>
-                                                <p className="text-sm text-gray-500">
-                                                    Qty: {item.quantity}
-                                                </p>
-                                            </div>
-                                            <p className="font-semibold">
-                                                ₹
-                                                {(
-                                                    item.price * item.quantity
-                                                ).toFixed(2)}
-                                            </p>
-                                        </div>
-                                    ))}
-
-                                    <div className="border-t pt-4 mt-4">
-                                        <div className="flex justify-between text-sm">
-                                            <span>Subtotal</span>
-                                            <span>₹{subtotal.toFixed(2)}</span>
-                                        </div>
-                                        {formState && (
-                                            <div className="flex justify-between text-sm mt-2">
-                                                <span>Shipping</span>
-                                                <span>
-                                                    {formState.shippingMethod ===
-                                                    "express"
-                                                        ? "₹10.00"
-                                                        : "Free"}
-                                                </span>
-                                            </div>
-                                        )}
-                                        <div className="flex justify-between text-lg font-bold mt-4 pt-4 border-t">
-                                            <span>Total</span>
-                                            <span>
-                                                ₹
-                                                {(
-                                                    subtotal +
-                                                    (formState?.shippingMethod ===
-                                                    "express"
-                                                        ? 10
-                                                        : 0)
-                                                ).toFixed(2)}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="lg:col-span-4">
+                            <OrderSummary
+                                subtotal={subtotal}
+                                shippingMethod={formState?.shippingMethod}
+                                setShippingMethod={() => {}}
+                                discountCode={null}
+                                setDiscountCode={() => {}}
+                                discount={0}
+                            />
                         </div>
                     </div>
                 </div>

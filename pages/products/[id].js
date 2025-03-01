@@ -17,9 +17,9 @@ const productsData = [
         sizes: ["100g", "500g", "1kg"],
         specifications: {
             "Particle Size": "100-200 mesh",
-            "Purity": "95%",
-            "Appearance": "White powder",
-        },
+            Purity: "95%",
+            Appearance: "White powder"
+        }
     },
     {
         id: "chitosan",
@@ -33,8 +33,8 @@ const productsData = [
         specifications: {
             "Molecular Weight": "100-200 kDa",
             "Deacetylation Degree": "90%",
-            "Appearance": "White powder",
-        },
+            Appearance: "White powder"
+        }
     },
     {
         id: "pupaeOil",
@@ -48,9 +48,9 @@ const productsData = [
         specifications: {
             "Lauric Acid Content": "40%",
             "Fatty Acid Profile": "C12:0, C14:0, C16:0",
-            "Appearance": "Clear liquid",
-        },
-    },
+            Appearance: "Clear liquid"
+        }
+    }
 ];
 
 const ImageGallery = ({ images }) => {
@@ -73,8 +73,8 @@ const ImageGallery = ({ images }) => {
                         onClick={() => setSelectedImage(index)}
                         className={`relative aspect-square overflow-hidden rounded-lg ${
                             selectedImage === index
-                                ? 'ring-2 ring-green-500'
-                                : 'hover:opacity-75'
+                                ? "ring-2 ring-green-500"
+                                : "hover:opacity-75"
                         }`}
                     >
                         <Image
@@ -91,8 +91,12 @@ const ImageGallery = ({ images }) => {
 };
 
 const ReviewSection = ({ reviews, onAddReview }) => {
-    const [newReview, setNewReview] = useState({ rating: 0, comment: '', image: null });
-    const [sortBy, setSortBy] = useState('recent');
+    const [newReview, setNewReview] = useState({
+        rating: 0,
+        comment: "",
+        image: null
+    });
+    const [sortBy, setSortBy] = useState("recent");
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -108,14 +112,14 @@ const ReviewSection = ({ reviews, onAddReview }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onAddReview(newReview);
-        setNewReview({ rating: 0, comment: '', image: null });
+        setNewReview({ rating: 0, comment: "", image: null });
     };
 
     const sortedReviews = [...reviews].sort((a, b) => {
         switch (sortBy) {
-            case 'highest':
+            case "highest":
                 return b.rating - a.rating;
-            case 'lowest':
+            case "lowest":
                 return a.rating - b.rating;
             default:
                 return new Date(b.date) - new Date(a.date);
@@ -147,8 +151,8 @@ const ReviewSection = ({ reviews, onAddReview }) => {
                                         key={i}
                                         className={`w-5 h-5 ${
                                             i < review.rating
-                                                ? 'text-yellow-400'
-                                                : 'text-gray-300'
+                                                ? "text-yellow-400"
+                                                : "text-gray-300"
                                         }`}
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
@@ -189,8 +193,8 @@ const ReviewSection = ({ reviews, onAddReview }) => {
                             }
                             className={`p-2 ${
                                 newReview.rating >= rating
-                                    ? 'text-yellow-400'
-                                    : 'text-gray-300'
+                                    ? "text-yellow-400"
+                                    : "text-gray-300"
                             }`}
                         >
                             ★
@@ -237,19 +241,21 @@ export default function ProductDetails() {
     const { id } = router.query;
     const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1);
-    const [selectedSize, setSelectedSize] = useState('');
-    const [product, setProduct] = useState(productsData.find((p) => p.id === id));
+    const [selectedSize, setSelectedSize] = useState("");
+    const [product, setProduct] = useState(
+        productsData.find((p) => p.id === id)
+    );
 
     const handleBuyNow = () => {
         addToCart(product, quantity);
-        router.push('/cart');
+        router.push("/cart");
     };
 
     if (!product) return <div>Product not found</div>;
 
     return (
         <Layout>
-            <SectionContainer className="footer--container wrap wrap-px relative z-10">
+            <SectionContainer className="footer--container wrap wrap-px relative z-10 pt-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Product Images */}
@@ -268,8 +274,8 @@ export default function ProductDetails() {
                                                 key={i}
                                                 className={`w-5 h-5 ${
                                                     i < product.rating
-                                                        ? 'text-yellow-400'
-                                                        : 'text-gray-300'
+                                                        ? "text-yellow-400"
+                                                        : "text-gray-300"
                                                 }`}
                                                 fill="currentColor"
                                                 viewBox="0 0 20 20"
@@ -297,11 +303,13 @@ export default function ProductDetails() {
                                         {product.sizes.map((size) => (
                                             <button
                                                 key={size}
-                                                onClick={() => setSelectedSize(size)}
+                                                onClick={() =>
+                                                    setSelectedSize(size)
+                                                }
                                                 className={`border rounded-md py-2 text-sm font-medium ${
                                                     selectedSize === size
-                                                        ? 'border-green-500 text-green-600'
-                                                        : 'border-gray-300 text-gray-900 hover:bg-gray-50'
+                                                        ? "border-green-500 text-green-600"
+                                                        : "border-gray-300 text-gray-900 hover:bg-gray-50"
                                                 }`}
                                             >
                                                 {size}
@@ -319,7 +327,9 @@ export default function ProductDetails() {
                                         min="1"
                                         value={quantity}
                                         onChange={(e) =>
-                                            setQuantity(parseInt(e.target.value))
+                                            setQuantity(
+                                                parseInt(e.target.value)
+                                            )
                                         }
                                         className="mt-1 w-20 border rounded-md p-2"
                                     />
@@ -379,11 +389,11 @@ export default function ProductDetails() {
                                 const newReview = {
                                     ...review,
                                     id: Date.now(),
-                                    date: new Date().toISOString(),
+                                    date: new Date().toISOString()
                                 };
                                 setProduct({
                                     ...product,
-                                    reviews: [...product.reviews, newReview],
+                                    reviews: [...product.reviews, newReview]
                                 });
                             }}
                         />
