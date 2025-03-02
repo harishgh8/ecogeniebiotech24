@@ -62,7 +62,7 @@ export const ProductCard = ({ product }) => {
 
                     <div className="mt-2 flex items-center justify-between">
                         <span className="text-xl font-bold text-gray-900">
-                            ${Number(price).toFixed(2)}
+                            ₹{Number(price).toFixed(2)}
                         </span>
                         <button
                             onClick={handleAddToCart}

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Layout } from "@components/Layout";
 import { SectionContainer } from "@components/Section";
 import { motion, AnimatePresence } from "framer-motion";
-import OrderSummary from '@components/OrderSummary/OrderSummary';
+import OrderSummary from "@components/OrderSummary/OrderSummary";
 
 const Cart = () => {
     const { cart, removeFromCart, updateQuantity, clearCart, getCartTotal } =
@@ -61,7 +61,7 @@ const Cart = () => {
     return (
         <Layout>
             <SectionContainer className="footer--container wrap wrap-px relative z-10">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-40">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-40 ">
                     <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
                     <AnimatePresence>
                         {cart.length === 0 ? (
@@ -82,7 +82,7 @@ const Cart = () => {
                                 </Link>
                             </motion.div>
                         ) : (
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
                                 <div className="lg:col-span-2">
                                     <div className="bg-white rounded-lg shadow-sm p-6 space-y-6">
                                         {cart.map((item) => (
@@ -96,7 +96,7 @@ const Cart = () => {
                                             >
                                                 <div className="relative w-24 h-24">
                                                     <Image
-                                                        src={item.image}
+                                                        src={item.images[0]}
                                                         fill
                                                         style={{
                                                             objectFit: "contain"
@@ -187,16 +187,22 @@ const Cart = () => {
                                         <OrderSummary
                                             subtotal={subtotal}
                                             shippingMethod={shippingMethod}
-                                            setShippingMethod={setShippingMethod}
+                                            setShippingMethod={
+                                                setShippingMethod
+                                            }
                                             discountCode={discountCode}
                                             setDiscountCode={setDiscountCode}
                                             discount={discount}
-                                            handleApplyDiscount={handleApplyDiscount}
+                                            handleApplyDiscount={
+                                                handleApplyDiscount
+                                            }
                                         />
 
                                         <div className="space-y-4 mt-6">
                                             <button
-                                                onClick={handleProceedToCheckout}
+                                                onClick={
+                                                    handleProceedToCheckout
+                                                }
                                                 className="w-full py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                                             >
                                                 Proceed to Checkout

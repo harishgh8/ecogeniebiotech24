@@ -70,7 +70,10 @@ export const productsData = [
         id: "lakadongTurmeric",
         title: "Lakadong Turmeric",
         price: 20,
-        images: ["/productsData/lakadong_turmeric.png"],
+        images: [
+            "/productsData/lakadong_turmeric.png",
+            "/productsData/lakadong_turmeric_info.png"
+        ],
         category: "Spices",
         rating: 4.8,
         reviews: [
@@ -85,6 +88,158 @@ export const productsData = [
             Origin: "Meghalaya, India",
             Appearance: "Bright yellow-orange powder"
         }
+    },
+    {
+        id: "bananaShakthi",
+        title: "Banana Shakthi",
+        price: 35,
+        images: [
+            "/productsData/banana_shakthi.png",
+            "/productsData/banana_shakthi_info.png"
+        ],
+        category: "Foliar Spray",
+        rating: 4.7,
+        reviews: [
+            {
+                id: 1,
+                rating: 5,
+                comment: "Significantly improved my banana yield!"
+            },
+            {
+                id: 2,
+                rating: 4,
+                comment: "Great product for improving fruit quality."
+            }
+        ],
+        description:
+            "A Karnataka state notified micronutrient foliar spray designed for banana crops. Water-soluble, improves fruit taste and color, and enhances yield by up to 20-25%.",
+        sizes: ["250g", "500g", "1kg"],
+        specifications: {
+            Zinc: "3%",
+            Iron: "1.5%",
+            Boron: "0.5%"
+        }
+    },
+    {
+        id: "citrus Shakthi",
+        title: "Citrus Shakthi",
+        price: 40,
+        images: [
+            "/productsData/citrus_shakthi.png",
+            "/productsData/citrus_shakthi_info.png"
+        ],
+        category: "Foliar Spray",
+        rating: 4.6,
+        reviews: [
+            { id: 1, rating: 5, comment: "Improved fruit quality and yield!" },
+            {
+                id: 2,
+                rating: 4,
+                comment: "Reduced pests and increased resistance."
+            }
+        ],
+        description:
+            "Micronutrient foliar spray for citrus crops that enhances fruit quality, increases root development, and boosts resistance to diseases and pests.",
+        sizes: ["250g", "500g", "1kg"],
+        specifications: {
+            Zinc: "3%",
+            Iron: "0.5%",
+            Boron: "0.5%"
+        }
+    },
+    {
+        id: "vegetable Shakthi",
+        title: "Vegetable Shakthi",
+        price: 30,
+        images: [
+            "/productsData/vegetable_shakthi.png",
+            "/productsData/vegetable_shakthi_info.png"
+        ],
+        category: "Foliar Spray",
+        rating: 4.7,
+        reviews: [
+            {
+                id: 1,
+                rating: 5,
+                comment: "Significantly increased my vegetable yield!"
+            },
+            {
+                id: 2,
+                rating: 4,
+                comment: "Good for improving vegetable quality."
+            }
+        ],
+        description:
+            "A micronutrient foliar spray designed to boost vegetable crop yield and quality. Fully water-soluble and compatible with various pesticides.",
+        sizes: ["250g", "500g", "1kg"],
+        specifications: {
+            Zinc: "3%",
+            Iron: "2%",
+            Boron: "1%"
+        }
+    },
+    {
+        id: "ecoRaj",
+        title: "EcoRaj Biofertilizer",
+        price: 45,
+        images: [
+            "/productsData/ecoraj_liquid.png",
+            "/productsData/ecoraj_liquid_info.png"
+        ],
+        category: "Biofertilizer",
+        rating: 4.8,
+        reviews: [
+            {
+                id: 1,
+                rating: 5,
+                comment: "Improved soil health and crop growth!"
+            },
+            {
+                id: 2,
+                rating: 5,
+                comment: "Significantly reduced my fertilizer usage."
+            }
+        ],
+        description:
+            "A liquid biofertilizer containing nitrogen-fixing, phosphate-solubilizing, and potash-mobilizing bacteria. Enhances crop vigor and reduces chemical fertilizer use.",
+        sizes: ["500ml", "1L", "5L"],
+        specifications: {
+            "Nitrogen Fixing Bacteria": "3ml/L",
+            "Phosphate Solubilizing Bacteria": "3ml/L",
+            "Potash Mobilizing Bacteria": "3ml/L"
+        }
+    },
+    {
+        id: "emc",
+        title: "Enriched Microbial Consortium (EMC)",
+        price: 50,
+        images: [
+            "/productsData/emc_powder.png",
+            "/productsData/emc_powder_info.png"
+        ],
+        category: "Biofertilizer",
+        rating: 4.9,
+        reviews: [
+            {
+                id: 1,
+                rating: 5,
+                comment: "Improved soil fertility drastically!"
+            },
+            {
+                id: 2,
+                rating: 5,
+                comment: "Very effective in composting and plant growth."
+            }
+        ],
+        description:
+            "EMC is a consortium of beneficial microorganisms, including lactic acid bacteria, yeast, and phototrophic bacteria. It is designed to enhance soil fertility, promote plant growth, and accelerate composting. This biofertilizer is suitable for all types of crops, improving nutrient uptake and suppressing harmful pathogens.",
+        sizes: ["500ml", "1L", "5L"],
+        specifications: {
+            "Microbial Strains":
+                "Lactic Acid Bacteria, Yeast, Phototrophic Bacteria",
+            Usage: "Soil amendment, compost activator, foliar spray",
+            Application: "Dilute 1:1000 before use"
+        }
     }
 ];
 
@@ -93,7 +248,7 @@ const ImageGallery = ({ images }) => {
 
     return (
         <div className="space-y-4">
-            <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+            <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
                 <Image
                     src={images[selectedImage]}
                     alt="Product"
@@ -292,7 +447,7 @@ export default function ProductDetails() {
         <Layout>
             <SectionContainer className="footer--container wrap wrap-px relative z-10 pt-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
                         {/* Product Images */}
                         <ImageGallery images={product.images} />
 
@@ -326,7 +481,7 @@ export default function ProductDetails() {
                             </div>
 
                             <div className="text-2xl font-bold text-gray-900">
-                                ${product.price.toFixed(2)}
+                                ₹{product.price.toFixed(2)}
                             </div>
 
                             <div className="space-y-4">
@@ -386,12 +541,12 @@ export default function ProductDetails() {
                                 </button>
                             </div>
 
-                            <div className="prose prose-sm mt-4">
+                            <div className="prose prose-sm mt-4 bg-gray-50 rounded-lg">
                                 <h3>Product Description</h3>
                                 <p>{product.description}</p>
                             </div>
 
-                            <div className="border-t pt-6">
+                            <div className="border-t pt-6 bg-gray-50 rounded-lg">
                                 <h3 className="text-sm font-medium text-gray-900">
                                     Specifications
                                 </h3>

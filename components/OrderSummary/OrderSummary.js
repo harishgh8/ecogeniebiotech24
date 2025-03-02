@@ -1,23 +1,23 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const OrderSummary = ({ 
-    subtotal, 
-    shippingMethod, 
-    setShippingMethod, 
-    discountCode, 
-    setDiscountCode, 
-    discount, 
-    handleApplyDiscount 
+const OrderSummary = ({
+    subtotal,
+    shippingMethod,
+    setShippingMethod,
+    discountCode,
+    setDiscountCode,
+    discount,
+    handleApplyDiscount
 }) => {
-    const shippingCost = shippingMethod === 'express' ? 100 : 0;
+    const shippingCost = shippingMethod === "express" ? 100 : 0;
     const gstRate = 0.18; // 18% GST
     const gstAmount = (subtotal - discount) * gstRate;
     const totalAmount = subtotal - discount + shippingCost + gstAmount;
 
     return (
-        <div className="bg-white rounded-lg shadow-sm p-6 space-y-4">
+        <div className="bg-green-50 rounded-lg shadow-sm p-6 space-y-4 ">
             <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-            
+
             <div className="space-y-2">
                 <div className="flex justify-between">
                     <span>Subtotal</span>

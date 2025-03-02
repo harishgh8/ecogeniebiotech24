@@ -69,7 +69,7 @@ export const CheckoutForms = ({ onSubmit, isLoading }) => {
                 await onSubmit(formData);
             } catch (error) {
                 console.error("Error submitting form:", error);
-                setErrors(prev => ({
+                setErrors((prev) => ({
                     ...prev,
                     submit: "Failed to process payment. Please try again."
                 }));
@@ -119,14 +119,20 @@ export const CheckoutForms = ({ onSubmit, isLoading }) => {
             <div className="mt-8">
                 <form onSubmit={handleSubmit} className="space-y-8">
                     {errors.submit && (
-                        <div className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <div
+                            className="bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                            role="alert"
+                        >
                             <strong className="font-bold">Error!</strong>
-                            <span className="block sm:inline"> {errors.submit}</span>
+                            <span className="block sm:inline">
+                                {" "}
+                                {errors.submit}
+                            </span>
                         </div>
                     )}
 
                     {/* Personal Details Section */}
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h2 className="text-xl font-semibold mb-6">
                             Personal Details
                         </h2>
@@ -229,7 +235,7 @@ export const CheckoutForms = ({ onSubmit, isLoading }) => {
                     </div>
 
                     {/* Shipping Section */}
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h2 className="text-xl font-semibold mb-6">
                             Shipping Details
                         </h2>

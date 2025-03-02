@@ -1,4 +1,5 @@
 import "@styles/globals.scss";
+import '../styles/typography.css';
 import { Provider } from "react-redux";
 import { store } from "../store";
 import { CartProvider } from '../context/CartContext';
