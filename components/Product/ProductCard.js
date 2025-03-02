@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 
 const StarRating = ({ rating }) => {
     return (
@@ -10,7 +10,7 @@ const StarRating = ({ rating }) => {
                 <svg
                     key={index}
                     className={`w-4 h-4 ${
-                        index < rating ? 'text-yellow-400' : 'text-gray-300'
+                        index < rating ? "text-yellow-400" : "text-gray-300"
                     }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -18,7 +18,9 @@ const StarRating = ({ rating }) => {
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
             ))}
-            <span className="ml-1 text-sm text-gray-600">({rating.toFixed(1)})</span>
+            <span className="ml-1 text-sm text-gray-600">
+                ({rating.toFixed(1)})
+            </span>
         </div>
     );
 };
@@ -26,7 +28,7 @@ const StarRating = ({ rating }) => {
 export const ProductCard = ({ product }) => {
     const [isLoading, setIsLoading] = useState(true);
     const { addToCart } = useCart();
-    const { id, title, price, image, rating, reviews } = product;
+    const { id, title, price, images, rating = 0, reviews = [] } = product;
 
     const handleAddToCart = (e) => {
         e.preventDefault();
@@ -38,11 +40,11 @@ export const ProductCard = ({ product }) => {
             <div className="relative overflow-hidden bg-white rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative h-64 overflow-hidden">
                     <Image
-                        src={image}
+                        src={images?.[0] || "/placeholder.png"} // Handle missing images
                         alt={title}
                         fill
                         className={`object-cover transition-opacity duration-300 ${
-                            isLoading ? 'opacity-0' : 'opacity-100'
+                            isLoading ? "opacity-0" : "opacity-100"
                         }`}
                         onLoadingComplete={() => setIsLoading(false)}
                     />
@@ -60,7 +62,7 @@ export const ProductCard = ({ product }) => {
 
                     <div className="mt-2 flex items-center justify-between">
                         <span className="text-xl font-bold text-gray-900">
-                            ${price.toFixed(2)}
+                            ${Number(price).toFixed(2)}
                         </span>
                         <button
                             onClick={handleAddToCart}
@@ -70,9 +72,10 @@ export const ProductCard = ({ product }) => {
                         </button>
                     </div>
 
-                    {reviews?.length > 0 && (
+                    {reviews.length > 0 && (
                         <p className="mt-2 text-sm text-gray-600">
-                            {reviews.length} reviews
+                            {reviews.length}{" "}
+                            {reviews.length === 1 ? "review" : "reviews"}
                         </p>
                     )}
                 </div>

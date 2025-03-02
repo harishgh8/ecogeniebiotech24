@@ -5,13 +5,18 @@ import { Layout } from "@components/Layout";
 import { SectionContainer } from "@components/Section";
 import { useCart } from "../../context/CartContext";
 
-const productsData = [
+export const productsData = [
     {
         id: "chitin",
         title: "Chitin",
         price: 25,
         images: ["/productsData/1.png"],
-        reviews: [],
+        category: "Biopolymers",
+        rating: 4.5,
+        reviews: [
+            { id: 1, rating: 5, comment: "Excellent product!" },
+            { id: 2, rating: 4, comment: "Works great" }
+        ],
         description:
             "Chitin is a natural biopolymer extracted from insect exoskeletons with high-grade purity exceeding 95%. This sustainable and eco-friendly material is ideal for biomedical and pharmaceutical applications. Our chitin is available in various particle sizes and offers excellent biocompatibility and biodegradability, making it perfect for innovative applications in medical and industrial fields.",
         sizes: ["100g", "500g", "1kg"],
@@ -26,7 +31,12 @@ const productsData = [
         title: "Chitosan",
         price: 30,
         images: ["/productsData/4.png"],
-        reviews: [],
+        category: "Biopolymers",
+        rating: 4.5,
+        reviews: [
+            { id: 1, rating: 5, comment: "Excellent product!" },
+            { id: 2, rating: 4, comment: "Works great" }
+        ],
         description:
             "Our premium chitosan is derived from deacetylated chitin with a deacetylation degree exceeding 90%. This water-soluble and highly versatile biomaterial is perfect for wound healing and drug delivery systems. It features natural anti-bacterial and anti-fungal properties, and is available in different molecular weights. Our chitosan is certified for medical and cosmetic applications, ensuring the highest quality standards for your needs.",
         sizes: ["100g", "500g", "1kg"],
@@ -41,7 +51,12 @@ const productsData = [
         title: "Pupae Oil",
         price: 15,
         images: ["/productsData/7.png"],
-        reviews: [],
+        category: "Oils",
+        rating: 4.5,
+        reviews: [
+            { id: 1, rating: 5, comment: "Excellent product!" },
+            { id: 2, rating: 4, comment: "Works great" }
+        ],
         description:
             "Our pupae oil is cold-pressed from black soldier fly pupae, ensuring the highest quality and nutrient retention. Rich in essential fatty acids and nutrients, it features a high lauric acid content exceeding 40%. The oil possesses natural antimicrobial properties and is suitable for both cosmetic and pharmaceutical applications. Our sustainable production process ensures minimal environmental impact while delivering a premium quality product.",
         sizes: ["100ml", "500ml", "1L"],
@@ -49,6 +64,26 @@ const productsData = [
             "Lauric Acid Content": "40%",
             "Fatty Acid Profile": "C12:0, C14:0, C16:0",
             Appearance: "Clear liquid"
+        }
+    },
+    {
+        id: "lakadongTurmeric",
+        title: "Lakadong Turmeric",
+        price: 20,
+        images: ["/productsData/lakadong_turmeric.png"],
+        category: "Spices",
+        rating: 4.8,
+        reviews: [
+            { id: 1, rating: 5, comment: "Highly potent turmeric!" },
+            { id: 2, rating: 4, comment: "Great quality and color." }
+        ],
+        description:
+            "Sourced from the pristine hills of Meghalaya, Lakadong Turmeric is renowned for its exceptionally high curcumin content exceeding 7%. This potent turmeric offers powerful anti-inflammatory, antioxidant, and immunity-boosting properties. Ideal for health-conscious consumers, it enhances culinary, medicinal, and skincare applications. Our Lakadong Turmeric is organically cultivated to ensure purity and quality.",
+        sizes: ["100g", "500g", "1kg"],
+        specifications: {
+            "Curcumin Content": "7%+",
+            Origin: "Meghalaya, India",
+            Appearance: "Bright yellow-orange powder"
         }
     }
 ];

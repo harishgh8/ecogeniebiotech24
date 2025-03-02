@@ -13,7 +13,6 @@ const DATA = [
                 href: "https://www.facebook.com/profile.php?id=100091364877101",
                 target: "_blank"
             },
-
             {
                 label: "Linkedin",
                 href: "https://www.linkedin.com/company/96237286/",
@@ -30,9 +29,10 @@ export const Footer = () => {
         <footer id="footer" className="bg-white">
             {/* Footer Links */}
             <SectionContainer className="footer--container wrap wrap-px relative z-10">
-                <div className="footer--content-container py-8">
-                    <div className="footer-links mb-6 grid grid-cols-2 gap-8 md:mb-6 md:grid-cols-8 lg:grid-cols-12">
-                        <div className="col-span-6">
+                <div className="footer--content-container py-8 lg:py-12">
+                    <div className="footer-links mb-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12">
+                        {/* Logo Section */}
+                        <div className="col-span-12 lg:col-span-4">
                             <div className="footer--logo grid gap-4">
                                 <Link href="/">
                                     <Image
@@ -46,12 +46,14 @@ export const Footer = () => {
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-span-3">
-                            <div className="footer-menu grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12 text-green-800">
+
+                        {/* Links Section */}
+                        <div className="col-span-12 md:col-span-4 lg:col-span-4">
+                            <div className="footer-menu grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 text-green-800">
                                 {DATA.map((footerLinks) => (
                                     <div
                                         key={footerLinks.title}
-                                        className="footer-menu--container col-span-2 md:col-span-4"
+                                        className="footer-menu--container col-span-1"
                                     >
                                         <h3 className="font-bold text-base mb-2">
                                             {footerLinks.title}
@@ -82,13 +84,14 @@ export const Footer = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="col-span-3">
+
+                        {/* Contact Section */}
+                        <div className="col-span-12 md:col-span-4 lg:col-span-4">
                             <div className="flex flex-col">
-                                <p className="text-green-800 font-bold px-2 sm:text-left text-1xl  ">
-                                    Contact us{" "}
+                                <p className="text-green-800 font-bold px-2 sm:text-left text-lg lg:text-xl">
+                                    Contact us
                                 </p>
-                                <h6 className="sm:text-left text-primary-900 p-2 text-sm">
-                                    {" "}
+                                <h6 className="sm:text-left text-primary-900 p-2 text-sm lg:text-base">
                                     No. 3, Manjunatha complex,
                                     <br /> 1st floor, SSA Road, 4th Main Road,
                                     Hebbal, Bengaluru - 560024
@@ -101,14 +104,16 @@ export const Footer = () => {
                     </div>
                 </div>
             </SectionContainer>
+
             {/* Footer Credits */}
             <SectionContainer className="footer-credits relative z-10">
                 <div className="wrap wrap-px py-4">
-                    <p className="my-0 text-green-800">
+                    <p className="my-0 text-green-800 text-sm lg:text-base">
                         © 2023 ecogenie biotech. All rights reserved
                     </p>
                 </div>
             </SectionContainer>
+
             <div className="footer--background"></div>
         </footer>
     );

@@ -4,51 +4,73 @@ import { SectionContainer } from "@components/Section";
 import { ProductCard } from "@components/Product/ProductCard";
 import { ProductFilters } from "@components/Product/ProductFilters";
 import { useDebounce } from "../hooks/useDebounce";
-
-const productsData = [
-    {
-        id: "chitin",
-        title: "Chitin",
-        description:
-            "Derived from sustainable silkworm pupae, chitin is a natural biopolymer that stimulates plant growth hormones like auxins and cytokinins, boosting productivity and resilience.",
-        price: 299.99,
-        image: "/productsData/1.png",
-        category: "Biopolymers",
-        rating: 4.5,
-        reviews: [
-            { id: 1, rating: 5, comment: "Excellent product!" },
-            { id: 2, rating: 4, comment: "Works great" }
-        ]
-    },
-    {
-        id: "chitosan",
-        title: "Chitosan",
-        description:
-            "Extracted from eco-friendly silkworm pupae, chitosan improves plant tolerance to environmental stresses, reduces fungal diseases, and enhances drought resistance, promoting sustainable agriculture.",
-        price: 199.99,
-        image: "/productsData/4.png",
-        category: "Biopolymers",
-        rating: 4.5,
-        reviews: [
-            { id: 1, rating: 5, comment: "Excellent product!" },
-            { id: 2, rating: 4, comment: "Works great" }
-        ]
-    },
-    {
-        id: "pupaeOil",
-        title: "Pupae Oil",
-        description:
-            "Sustainably sourced from silkworm pupae, this nutrient-rich oil enhances soil fertility, supports plant growth, and serves as a natural bio-enhancer for eco-conscious farming.",
-        price: 149.99,
-        image: "/productsData/7.png",
-        category: "Oils",
-        rating: 4.5,
-        reviews: [
-            { id: 1, rating: 5, comment: "Excellent product!" },
-            { id: 2, rating: 4, comment: "Works great" }
-        ]
-    }
-];
+import { productsData } from "./products/[id]";
+// const productsData = [
+//     {
+//         id: "chitin",
+//         title: "Chitin",
+//         description:
+//             "Derived from sustainable silkworm pupae, chitin is a natural biopolymer that stimulates plant growth hormones like auxins and cytokinins, boosting productivity and resilience.",
+//         price: 299.99,
+//         image: "/productsData/1.png",
+//         category: "Biopolymers",
+//         rating: 4.5,
+//         reviews: [
+//             { id: 1, rating: 5, comment: "Excellent product!" },
+//             { id: 2, rating: 4, comment: "Works great" }
+//         ]
+//     },
+//     {
+//         id: "chitosan",
+//         title: "Chitosan",
+//         description:
+//             "Extracted from eco-friendly silkworm pupae, chitosan improves plant tolerance to environmental stresses, reduces fungal diseases, and enhances drought resistance, promoting sustainable agriculture.",
+//         price: 199.99,
+//         image: "/productsData/4.png",
+//         category: "Biopolymers",
+//         rating: 4.5,
+//         reviews: [
+//             { id: 1, rating: 5, comment: "Excellent product!" },
+//             { id: 2, rating: 4, comment: "Works great" }
+//         ]
+//     },
+//     {
+//         id: "pupaeOil",
+//         title: "Pupae Oil",
+//         description:
+//             "Sustainably sourced from silkworm pupae, this nutrient-rich oil enhances soil fertility, supports plant growth, and serves as a natural bio-enhancer for eco-conscious farming.",
+//         price: 149.99,
+//         image: "/productsData/7.png",
+//         category: "Oils",
+//         rating: 4.5,
+//         reviews: [
+//             { id: 1, rating: 5, comment: "Excellent product!" },
+//             { id: 2, rating: 4, comment: "Works great" }
+//         ]
+//     },
+//     {
+//         id: "lakadongTurmeric",
+//         title: "Lakadong Turmeric",
+//         description:
+//             "Sourced from the pristine hills of Meghalaya, Lakadong Turmeric is known for its high curcumin content, offering powerful antioxidant and anti-inflammatory benefits for health and wellness.",
+//         price: 249.99,
+//         image: "/productsData/lakadong_turmeric.png",
+//         category: "Spices",
+//         rating: 4.8,
+//         reviews: [
+//             {
+//                 id: 1,
+//                 rating: 5,
+//                 comment: "Highly potent turmeric, great quality!"
+//             },
+//             {
+//                 id: 2,
+//                 rating: 5,
+//                 comment: "Perfect for golden milk and cooking!"
+//             }
+//         ]
+//     }
+// ];
 
 export default function Products() {
     const [products, setProducts] = useState([]);

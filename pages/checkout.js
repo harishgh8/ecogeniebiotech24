@@ -150,24 +150,65 @@ export default function Checkout() {
     };
 
     return (
+        // <Layout>
+        //     <SectionContainer className="footer--container wrap wrap-px relative z-10">
+        //         <div className="max-w-4xl mx-auto pb-20 pt-40">
+        //             <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+        //             {error && (
+        //                 <div className="mb-6 bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+        //                     <strong className="font-bold">Error!</strong>
+        //                     <span className="block sm:inline"> {error}</span>
+        //                 </div>
+        //             )}
+        //             <div className="grid grid-cols-12 gap-8">
+        //                 <div className="col-span-12 lg:col-span-8">
+        //                     <CheckoutForms
+        //                         onSubmit={handleFormSubmit}
+        //                         isLoading={loading}
+        //                     />
+        //                 </div>
+        //                 <div className="lg:col-span-4">
+        //                     <OrderSummary
+        //                         subtotal={subtotal}
+        //                         shippingMethod={formState?.shippingMethod}
+        //                         setShippingMethod={() => {}}
+        //                         discountCode={null}
+        //                         setDiscountCode={() => {}}
+        //                         discount={0}
+        //                     />
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </SectionContainer>
+        // </Layout>
         <Layout>
             <SectionContainer className="footer--container wrap wrap-px relative z-10">
-                <div className="max-w-4xl mx-auto pb-20 pt-40">
-                    <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+                <div className="max-w-4xl mx-auto pb-10 lg:pb-20 pt-20 lg:pt-40">
+                    {/* Responsive Heading */}
+                    <h1 className="text-2xl lg:text-3xl font-bold mb-6 lg:mb-8">
+                        Checkout
+                    </h1>
+
+                    {/* Error Message */}
                     {error && (
                         <div className="mb-6 bg-red-50 border border-red-400 text-red-700 px-4 py-3 rounded relative">
                             <strong className="font-bold">Error!</strong>
                             <span className="block sm:inline"> {error}</span>
                         </div>
                     )}
-                    <div className="grid grid-cols-12 gap-8">
+
+                    {/* Responsive Grid Layout */}
+                    <div className="grid grid-cols-12 gap-6">
+                        {/* Checkout Form (Full width on mobile, 8 columns on desktop) */}
                         <div className="col-span-12 lg:col-span-8">
                             <CheckoutForms
                                 onSubmit={handleFormSubmit}
                                 isLoading={loading}
                             />
                         </div>
-                        <div className="lg:col-span-4">
+
+                        {/* Order Summary (Full width on mobile, 4 columns on desktop) */}
+                        <div className="col-span-12 lg:col-span-4">
                             <OrderSummary
                                 subtotal={subtotal}
                                 shippingMethod={formState?.shippingMethod}
