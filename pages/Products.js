@@ -111,11 +111,11 @@ export default function Products() {
 
                     <div className="flex flex-col lg:flex-row gap-8">
                         {/* Filters */}
-                        <div className="lg:w-1/4">
+                        {/* <div className="lg:w-1/4">
                             <ProductFilters
                                 onFilterChange={handleFilterChange}
                             />
-                        </div>
+                        </div> */}
 
                         {/* Product Grid */}
                         <div className="lg:w-3/4">

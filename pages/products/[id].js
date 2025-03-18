@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Layout } from "@components/Layout";
 import { SectionContainer } from "@components/Section";
 import { useCart } from "../../context/CartContext";
+import Link from "next/link";
 
 export const productsData = [
     {
@@ -480,9 +481,9 @@ export default function ProductDetails() {
                                 </div>
                             </div>
 
-                            <div className="text-2xl font-bold text-gray-900">
+                            {/* <div className="text-2xl font-bold text-gray-900">
                                 ₹{product.price.toFixed(2)}
-                            </div>
+                            </div> */}
 
                             <div className="space-y-4">
                                 <div>
@@ -508,7 +509,7 @@ export default function ProductDetails() {
                                     </div>
                                 </div>
 
-                                <div>
+                                {/* <div>
                                     <label className="text-sm font-medium text-gray-900">
                                         Quantity
                                     </label>
@@ -523,11 +524,11 @@ export default function ProductDetails() {
                                         }
                                         className="mt-1 w-20 border rounded-md p-2"
                                     />
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex space-x-4">
-                                <button
+                                {/* <button
                                     onClick={() => addToCart(product, quantity)}
                                     className="flex-1 bg-gray-800 text-white px-6 py-3 rounded-md hover:bg-gray-700"
                                 >
@@ -538,6 +539,14 @@ export default function ProductDetails() {
                                     className="flex-1 bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700"
                                 >
                                     Buy Now
+                                </button> */}
+                                <button className="flex-1 bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700">
+                                    <Link
+                                        href="/Contact"
+                                        className="block text-gray-700 hover:text-green-600 transition"
+                                    >
+                                        Contact us
+                                    </Link>
                                 </button>
                             </div>
 

@@ -53,14 +53,14 @@ export const Header = () => {
 
                 {/* Cart & Mobile Menu */}
                 <div className="flex items-center gap-4">
-                    <Link href="/cart" className="relative text-gray-700">
+                    {/* <Link href="/cart" className="relative text-gray-700">
                         <Icon icon="mdi:cart-outline" className="h-6 w-6" />
                         {cartItemCount > 0 && (
                             <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
                                 {cartItemCount}
                             </span>
                         )}
-                    </Link>
+                    </Link> */}
 
                     {/* Mobile Menu Button */}
                     <button

@@ -60,7 +60,7 @@ export const ProductCard = ({ product }) => {
 
                     <StarRating rating={rating} />
 
-                    <div className="mt-2 flex items-center justify-between">
+                    {/* <div className="mt-2 flex items-center justify-between">
                         <span className="text-xl font-bold text-gray-900">
                             ₹{Number(price).toFixed(2)}
                         </span>
@@ -70,7 +70,7 @@ export const ProductCard = ({ product }) => {
                         >
                             Add to Cart
                         </button>
-                    </div>
+                    </div> */}
 
                     {reviews.length > 0 && (
                         <p className="mt-2 text-sm text-gray-600">
