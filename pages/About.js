@@ -38,55 +38,86 @@ export default function About() {
                         <MotionBTTContainer
                             transition={{ delay: 0.6, duration: 0.5 }}
                         >
-                            <Content
-                                className="text-left !text-lg"
-                                alignment="center"
-                            >
-                                <p>
-                                    Ecogenie Biotech is a Bengaluru based
-                                    company dedicated to transforming silkworm
-                                    pupae waste into valuable, sustainable
-                                    biomaterials. With a focus on chitosan,
-                                    pupal oil, and pupal protein hydrolysates,
-                                    we harness the potential of waste silkworm
-                                    pupae to produce high-quality, eco-friendly
-                                    products.
-                                </p>
-                                <p>
-                                    Our company is committed to supporting
-                                    farmers with innovative technologies that
-                                    promote sustainability and contribute to the
-                                    circular economy.
-                                </p>
-                                <p>
-                                    We understand that sustainability is a
-                                    collective responsibility, shared by
-                                    individuals and organizations alike.
-                                    That&apos;s why we&apos;re committed to
-                                    working hand in hand with our customers and
-                                    partners to foster positive change.
-                                </p>
-                                <p>
-                                    Our product line features a wide range of
-                                    chitosan-based applications across various
-                                    industries, including healthcare, food
-                                    preservation, agriculture, and cosmetics. We
-                                    specialize in developing wound care
-                                    dressings and related healthcare products
-                                    that utilize the unique properties of
-                                    chitosan for enhanced healing and skin
-                                    protection.
-                                </p>
-                                <p>
-                                    By combining cutting-edge technology with a
-                                    deep commitment to sustainability, Ecogenie
-                                    Biotech is positioning itself as a leader in
-                                    the chitosan market, with a mission to
-                                    create a positive environmental impact while
-                                    delivering high-quality, innovative products
-                                    for diverse industries.
-                                </p>
-                            </Content>
+                           <Content className="text-left !text-lg" alignment="center">
+    <p>
+        <strong>Company Profile: Ecogenie Biotech</strong>
+    </p>
+
+    <p>
+        Ecogenie Biotech is a Bengaluru-based biotechnology pioneer dedicated
+        to transforming silkworm pupae—a nutrient-dense byproduct of the silk
+        industry—into high-value, sustainable biomaterials. By applying
+        advanced extraction and hydrolysis technologies, we harness the power
+        of the circular economy to deliver eco-friendly solutions for the
+        global market.
+    </p>
+
+    <p>
+        <strong>Our Core Innovation: The “Super-Protein”</strong>
+    </p>
+
+    <p>
+        While Soy Protein has long been the global standard for nutrition,
+        Ecogenie Biotech is introducing a superior alternative: Silkworm
+        Pupae Protein.
+    </p>
+
+    <p>
+        Our pupae protein delivers a complete animal-derived amino acid
+        profile, naturally rich in Lysine and Methionine—the two most critical
+        limiting amino acids in poultry and aquaculture feeds. Unlike soy,
+        silkworm protein is a novel, hypoallergenic ingredient, making it an
+        ideal solution for premium pet food markets in Canada and the
+        European Union.
+    </p>
+
+    <p>
+        <strong>Our Diverse Product Ecosystem</strong>
+    </p>
+
+    <p>
+        We utilize every component of the silkworm pupa to ensure zero-waste
+        production:
+    </p>
+
+    <p>
+        <strong>Pupal Protein Hydrolysates &amp; Defatted Meal:</strong>
+        High-performance proteins for specialized animal nutrition,
+        aquaculture, and poultry starter feeds.
+    </p>
+
+    <p>
+        <strong>Chitosan &amp; Derivatives:</strong>
+        Bio-active polymers for healthcare (including wound care dressings),
+        food preservation, agriculture, and high-end cosmetics.
+    </p>
+
+    <p>
+        <strong>Pupal Oil:</strong>
+        A rich source of Alpha-Linolenic Acid (Omega-3) supporting skin and
+        coat health in pets, as well as select industrial applications.
+    </p>
+
+    <p>
+        <strong>Sustainability &amp; Global Impact</strong>
+    </p>
+
+    <p>
+        Sustainability is a shared responsibility. By upcycling silkworm
+        waste, Ecogenie Biotech provides a viable alternative to soy-driven
+        deforestation and overexploited marine resources.
+    </p>
+
+    <p>
+        We are committed to empowering farmers through innovative circular
+        technologies while supplying standardized, technical-grade
+        ingredients to global manufacturers. From Canadian pet food
+        co-packers seeking sustainable novel proteins to medical device
+        companies requiring high-purity chitosan, Ecogenie Biotech delivers
+        cutting-edge quality with a positive environmental footprint.
+    </p>
+</Content>
+
                         </MotionBTTContainer>
                     </SectionContainer>
                 </SectionContainer>
